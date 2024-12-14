@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-1/6 bg-gray-800 text-white p-4 space-y-4">
+            <div class="text-center mb-6">
+                <img class="w-16 h-16 rounded-full mx-auto" src="https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg" alt="Profile picture">
+                <h2 class="mt-2 font-bold text-lg">John Doe</h2>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a th:href="@{/dashboard}" class="flex items-center hover:text-blue-400"><i class="fas fa-tachometer-alt mr-3"></i> Dashboard</a></li>
+                    <li><a th:href="@{/contacts/new}" class="flex items-center hover:text-blue-400"><i class="fas fa-user-plus mr-3"></i> Add Contact</a></li>
+                    <li><a th:href="@{/contacts}" class="flex items-center hover:text-blue-400"><i class="fas fa-address-book mr-3"></i> View Contacts</a></li>
+                    <li><a href="#" class="flex items-center hover:text-blue-400"><i class="fas fa-star mr-3"></i> Favorites</a></li>
+                    <li><a href="#" class="flex items-center hover:text-blue-400"><i class="fas fa-user-circle mr-3"></i> Profile</a></li>
+                    <li><a href="./index.html" class="flex items-center hover:text-blue-400"><i class="fas fa-sign-out-alt mr-3"></i> Logout</a></li>
+                </ul>
+
+                <div class="border-t border-gray-600 mt-6 pt-4 space-y-4">
+                    <ul class="space-y-4">
+                        <li><a href="./pages/feedback.html" class="flex items-center hover:text-blue-400"><i class="fas fa-comment-alt mr-3"></i> Feedback</a></li>
+                        <li><a href="./pages/help.html" class="flex items-center hover:text-blue-400"><i class="fas fa-question-circle mr-3"></i> Help</a></li>
+                        <li><a href="#" class="flex items-center hover:text-blue-400"><i class="fas fa-bars mr-3"></i> Menu</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-4/5 p-10 overflow-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">SCM Dashboard</h1>
+                <div class="flex space-x-3 text-gray-800">
+                    <a href="#" class="hover:text-blue-600"><i class="fas fa-phone mr-1"></i>Contact</a>
+                    <a href="./index.html" class="hover:text-blue-600"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                </div>
+            </div>
+            <div class="bg-white p-10 rounded-lg shadow-md">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-4">Add New Contact</h2>
+                <p class="text-gray-600 mb-8">Save the contact details securely on the cloud. You can email your client directly from SCM.</p>
+
+                <form th:action="@{/contacts}" th:object="${contact}" method="POST" class="space-y-6">
+                    <!-- Contact Name -->
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium">Contact Name</label>
+                        <input id="name" type="text" th:field="*{name}" placeholder="Enter Name" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200" />
+                    </div>
+
+                    <!-- Contact Email -->
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium">Contact Email</label>
+                        <input id="email" type="email" th:field="*{email}" placeholder="example@gmail.com" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200" />
+                    </div>
+
+                    <!-- Contact Phone -->
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium">Contact Phone</label>
+                        <input id="phone" type="text" th:field="*{phoneNumber}" placeholder="98235252525" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200" />
+                    </div>
+
+                    <!-- Contact Address -->
+                    <div>
+                        <label for="address" class="block text-gray-700 font-medium">Contact Address</label>
+                        <textarea id="address" th:field="*{address}" placeholder="Address of the contact" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200"></textarea>
+                    </div>
+
+                    <!-- Contact Description -->
+                    <div>
+                        <label for="description" class="block text-gray-700 font-medium">Contact Description</label>
+                        <textarea id="description" th:field="*{description}" placeholder="Write about your contact" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200"></textarea>
+                    </div>
+
+                    <!-- Contact Links -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label for="website" class="block text-gray-700 font-medium">Website Link</label>
+                            <input id="website" type="url" th:field="*{websiteLink}" placeholder="Website Link" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200" />
+                        </div>
+
+                        <div>
+                            <label for="linkedin" class="block text-gray-700 font-medium">LinkedIn Link</label>
+                            <input id="linkedin" type="url" th:field="*{linkedInLink}" placeholder="LinkedIn Link" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-200" />
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:ring focus:ring-blue-200">Save Contact</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

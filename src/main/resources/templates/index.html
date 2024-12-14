@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contact Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-6 px-4 lg:px-8">
+            <div class="text-blue-600 text-2xl font-bold tracking-wide">SmartContactManager</div>
+            <div class="flex space-x-6 text-sm text-gray-700 items-center">
+                <span class="hidden md:inline">aec.cse.contactmanager@gmail.com</span>
+                <span class="hidden md:inline">+123 456 7890</span>
+                <!-- <a href="./signin.html" class="bg-blue-700 text-white font-semibold p-2 rounded shadow hover:font-extrabold hover:shadow-lg hover:bg-blue-600  transition-all">Login</a> -->
+                <a th:href="@{/sign-up}" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700">Sign Up</a>
+                <!-- <a href="./signup.html" class="bg-blue-700 text-white font-semibold p-2 rounded shadow hover:font-extrabold hover:shadow-lg hover:bg-blue-600  transition-all">Register</a> -->
+                <a th:href="@{/sign-in}" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="bg-blue-700 text-white py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-4 lg:px-8">
+            <div class="space-x-6 font-medium text-lg">
+                <a href="#" class="hover:underline">Home</a>
+                <a href="#" class="hover:underline">About</a>
+                <a href="#" class="hover:underline">Help</a>
+                <a href="#" class="hover:underline">Contact</a>
+            </div>
+            <button class="bg-yellow-500 hover:bg-yellow-600 text-sm px-5 py-2 rounded-full font-semibold shadow-lg">Get a Quote</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto flex flex-col md:flex-row items-center py-16 px-4 lg:px-8 space-y-8 md:space-y-0 md:space-x-12">
+        <div class="md:w-1/2 space-y-6">
+            <h1 class="text-5xl font-extrabold text-gray-800 leading-tight">Efficient Contact Management for Your Business</h1>
+            <p class="text-lg text-gray-600">Manage your contacts seamlessly with Smart Contact Manager. Organize, access, and keep track of essential information with ease.</p>
+            <div class="space-x-4">
+                <a href="./signup.html" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700">Sign Up</a>
+                <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+            </div>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+            <img src="https://cdn.prod.website-files.com/5b7f24cc900973de13d7beb4/65f0b8598dd223823a08f686_best%20contact%20management%20software%201%20(1).jpg" alt="Contact Management System" class="rounded-lg shadow-2xl w-full max-w-md transition-transform transform hover:scale-105 duration-300">
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-blue-50 py-16 px-4 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">What Our Clients Say</h2>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Hear from satisfied clients who trust Smart Contact Manager for their business needs.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow">
+                    <p class="text-gray-600 italic">"Smart Contact Manager transformed our approach to handling contacts. Easy to use and reliable!"</p>
+                    <h3 class="mt-4 text-lg font-semibold text-gray-700">- Sarah Lee</h3>
+                </div>
+                <div class="p-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow">
+                    <p class="text-gray-600 italic">"An indispensable tool for managing contacts and ensuring data security."</p>
+                    <h3 class="mt-4 text-lg font-semibold text-gray-700">- John Smith</h3>
+                </div>
+                <div class="p-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow">
+                    <p class="text-gray-600 italic">"Smart Contact Manager makes contact management so much easier. Highly recommend it!"</p>
+                    <h3 class="mt-4 text-lg font-semibold text-gray-700">- Emma Brown</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white py-16 px-4 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Why Choose Smart Contact Manager?</h2>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Smart Contact Manager provides a streamlined approach to handling your contacts, offering top-notch features for an organized experience.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-gray-50 border rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Easy to Use</h3>
+                    <p class="text-gray-600">Simple interface for quick access to your contacts anytime, anywhere.</p>
+                </div>
+                <div class="p-8 bg-gray-50 border rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Data Security</h3>
+                    <p class="text-gray-600">Your contacts are stored securely and are accessible only by you.</p>
+                </div>
+                <div class="p-8 bg-gray-50 border rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Integrated Tools</h3>
+                    <p class="text-gray-600">Get advanced features to handle your contacts effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-200 py-12">
+        <div class="container mx-auto text-center space-y-6">
+            <p>© 2024 Smart Contact Manager. All rights reserved.</p>
+            <div class="flex justify-center space-x-8">
+                <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a>
+                <a href="#" class="text-blue-500 hover:underline">Terms of Service</a>
+            </div>
+            <p class="text-gray-500 text-sm">Smart Contact Manager provides a streamlined approach to handling your contacts, offering top-notch features for an organized experience.</p>
+            <p class="text-gray-400 text-xs">"Helping businesses stay connected and organized, one contact at a time."</p>
+        </div>
+    </footer>
+
+</body>
+</html>

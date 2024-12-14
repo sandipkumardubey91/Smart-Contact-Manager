@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <aside class="w-1/6 bg-gray-800 text-white p-4 space-y-4">
+            <div class="text-center mb-6">
+                <img class="w-16 h-16 rounded-full mx-auto" src="https://franchisematch.com/wp-content/uploads/2015/02/john-doe.jpg" alt="Profile picture">
+                <h2 class="mt-2 font-bold text-lg">John Doe</h2>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a th:href="@{/dashboard}" class="flex items-center hover:text-blue-400"><i class="fas fa-tachometer-alt mr-3"></i> Dashboard</a></li>
+                    <li><a th:href="@{/contacts/new}" class="flex items-center hover:text-blue-400"><i class="fas fa-user-plus mr-3"></i> Add Contact</a></li>
+                    <li><a th:href="@{/contacts}" class="flex items-center hover:text-blue-400"><i class="fas fa-address-book mr-3"></i> View Contacts</a></li>
+                    <li><a href="#" class="flex items-center hover:text-blue-400"><i class="fas fa-star mr-3"></i> Favorites</a></li>
+                    <li><a href="#" class="flex items-center hover:text-blue-400"><i class="fas fa-user-circle mr-3"></i> Profile</a></li>
+                    <li><a href="./index.html" class="flex items-center hover:text-blue-400"><i class="fas fa-sign-out-alt mr-3"></i> Logout</a></li>
+                </ul>
+
+                <div class="border-t border-gray-600 mt-6 pt-4 space-y-4">
+                    <ul class="space-y-4">
+                        <li><a href="./pages/feedback.html" class="flex items-center hover:text-blue-400"><i class="fas fa-comment-alt mr-3"></i> Feedback</a></li>
+                        <li><a href="./pages/help.html" class="flex items-center hover:text-blue-400"><i class="fas fa-question-circle mr-3"></i> Help</a></li>
+                        <li><a href="#" class="flex items-center hover:text-blue-400"><i class="fas fa-bars mr-3"></i> Menu</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <main class="w-5/6 p-6 overflow-auto">
+            <nav class="bg-gray-800 text-white py-4 px-6 rounded-lg flex justify-between items-center mb-6">
+                <h1 class="text-lg font-bold">List Contacts</h1>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-blue-400">Contact Management</a></li>
+                </ul>
+            </nav>
+
+            <div class="container mx-auto">
+            
+
+                <div class="flex justify-end mb-4">
+                    <a th:href = "@{/contacts/new}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Add Contact</a>
+                </div>
+                <!-- <div class="overflow-x-auto">
+
+                    <table class="table-auto w-full border-collapse border border-gray-300">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="border border-gray-300 px-4 py-2 w-40 h-12">Name</th>
+                                <th class="border border-gray-300 px-4 py-2 w-60 h-12">Email</th>
+                                <th class="border border-gray-300 px-4 py-2 w-40 h-12">Phone Number</th>
+                                <th class="border border-gray-300 px-4 py-2 w-48 h-12">Address</th>
+                                <th class="border border-gray-300 px-4 py-2 w-40 h-12 ">Description</th>
+                                <th class="border border-gray-300 px-4 py-2 w-48 h-12">Website Link</th>
+                                <th class="border border-gray-300 px-4 py-2 w-48 h-12">LinkedIn Link</th>
+                                <th class="border border-gray-300 px-4 py-2 w-32 h-12">Update</th>
+                                <th class="border border-gray-300 px-4 py-2 w-32 h-12">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="contact : ${contacts}" class="even:bg-gray-100">
+                                <td class="border border-gray-300 px-4 py-2 w-40 h-12" th:text="${contact.name}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-60 h-12" th:text="${contact.email}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-40 h-12" th:text="${contact.phoneNumber}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-48 h-12" th:text="${contact.address}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-40 h-12" th:text="${contact.description}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-48 h-12" th:text="${contact.websiteLink}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-48 h-12" th:text="${contact.linkedInLink}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-32 h-12">
+                                    <a th:href="@{/contacts/edit/{id}(id=${contact.id})}" 
+                                       class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                                        <i class="fas fa-edit text-xl"></i>
+                                    </a>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-2 w-32 h-12">
+                                    <a th:href="@{/contacts/{id}(id=${contact.id})}" 
+                                       class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+                                        <i class="fas fa-trash text-xl"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div> -->
+
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full border-collapse border border-gray-300">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="border border-gray-300 px-4 py-2 w-40 h-12">Name</th>
+                                <th class="border border-gray-300 px-4 py-2 w-60 h-12">Email</th>
+                                <th class="border border-gray-300 px-4 py-2 w-40 h-12">Phone Number</th>
+                                <th class="border border-gray-300 px-4 py-2 w-48 h-12">Address</th>
+                                <th class="border border-gray-300 px-4 py-2 w-40 h-12">Description</th>
+                                <th class="border border-gray-300 px-4 py-2 w-48 h-12">Website Link</th>
+                                <th class="border border-gray-300 px-4 py-2 w-48 h-12">LinkedIn Link</th>
+                                <th class="border border-gray-300 px-4 py-2 w-32 h-12">Update</th>
+                                <th class="border border-gray-300 px-4 py-2 w-32 h-12">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="contact : ${contacts}" class="even:bg-gray-100">
+                                <td class="border border-gray-300 px-4 py-2 w-40 h-12 truncate overflow-hidden" th:text="${contact.name}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-60 h-12 truncate overflow-hidden" th:text="${contact.email}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-40 h-12 truncate overflow-hidden" th:text="${contact.phoneNumber}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-48 h-12 overflow-auto whitespace-nowrap max-w-xs" style="max-width: 12rem;" th:text="${contact.address}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-40 h-12 overflow-auto whitespace-nowrap max-w-xs" style="max-width: 10rem;" th:text="${contact.description}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-48 h-12 truncate overflow-hidden whitespace-nowrap" th:text="${contact.websiteLink}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-48 h-12 truncate overflow-hidden whitespace-nowrap" th:text="${contact.linkedInLink}"></td>
+                                <td class="border border-gray-300 px-4 py-2 w-32 h-12">
+                                    <a th:href="@{/contacts/edit/{id}(id=${contact.id})}" 
+                                       class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                                        <i class="fas fa-edit text-xl"></i>
+                                    </a>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-2 w-32 h-12">
+                                    <a th:href="@{/contacts/{id}(id=${contact.id})}" 
+                                       class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+                                        <i class="fas fa-trash text-xl"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,276 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Dark Mode Toggle Icon Styling */
+.toggle-switch {
+    width: 60px;
+    height: 34px;
+    background-color: #f4f4f4;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .toggle-switch {
+    background-color: #333;
+}
+
+body.dark-mode #toggle-icon {
+    transform: translateX(25px);
+}
+
+/* Hero section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f4f4f4;
+    min-height: calc(100vh - 50px);
+    transition: background-color 0.5s ease;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    transition: color 0.5s ease;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.button-group .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-group .btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background-color: #222;
+}
+
+body.dark-mode .hero-section {
+    background-color: #222;
+}
+
+body.dark-mode .hero-text h1,
+body.dark-mode .hero-text p {
+    color: white;
+}
+
+body.dark-mode .btn {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .button-group .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Sign In Section */
+.signin-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    background-color: #f4f4f4;
+    transition: background-color 0.5s ease;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+    transition: color 0.5s ease;
+}
+
+/* Input Fields */
+.form-container input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .signin-section {
+    background-color: #222;
+}
+
+body.dark-mode .form-title,
+body.dark-mode .forgot-password a {
+    color: #ffffff;
+}
+
+body.dark-mode .form-container {
+    background-color: #333;
+}
+
+body.dark-mode .submit-btn {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .submit-btn:hover {
+    background-color: #333;
+}
+
+/* add dark mode in signup page here */
+
